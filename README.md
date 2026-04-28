@@ -26,7 +26,6 @@ Pour construire/valider le projet :
 - `make`
 - `tar`
 - `gzip`
-- `git` (utilisé par `make orig`)
 
 ## Dépendances d'exécution
 
@@ -54,29 +53,11 @@ Depuis la racine du dépôt :
 # 1) Vérifier la syntaxe
 make check
 
-# 2) Générer l'archive source Debian amont à la racine
-make orig
-
-# 3) Optionnel : copier aussi dans dist/
+# 2) Générer l'archive source Debian amont
 make dist
+
+# 3) Vérifier l'archive
+ls -lh dist/mythicos-drivers_1.0.orig.tar.gz
 ```
 
-Archive racine : `mythicos-drivers_1.0.orig.tar.gz`.
-Archive CI : `dist/mythicos-drivers_1.0.orig.tar.gz`.
-
-## Important : commandes `tar` correctes
-
-L'erreur `L'ancienne option « g » a besoin d'un argument` apparaît si la commande `tar` est incomplète.
-
-Exemples corrects :
-
-```bash
-# Créer une archive .tar.gz (méthode recommandée dans ce projet)
-	git archive --format=tar.gz --prefix=mythicos-drivers-1.0/ -o mythicos-drivers_1.0.orig.tar.gz HEAD
-
-# Lister le contenu d'une archive .tar.gz
-	tar -tzf mythicos-drivers_1.0.orig.tar.gz
-
-# Extraire une archive .tar.gz
-	tar -xzf mythicos-drivers_1.0.orig.tar.gz
-```
+Archive attendue : `dist/mythicos-drivers_1.0.orig.tar.gz`.
