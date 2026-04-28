@@ -1,0 +1,4 @@
+dist/
+__pycache__/
+scr/__pycache__/
+mythicos-drivers_1.0.orig.tar.gz
